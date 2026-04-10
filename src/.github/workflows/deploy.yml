@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main] # mainブランチに保存されたら実行
+    branches: [main] # mainブランチに更新があったら自動実行
 
 permissions:
   contents: read
@@ -14,23 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build # ここでViteがHTML/CSSを書き出す
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - run: npm install
+      - run: npm run build # ここでプロジェクトをビルド
+      - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # Viteが作ったファイルが入っているフォルダを指定
+          path: ./dist # Viteが生成するdistフォルダをアップロード
 
   deploy:
     needs: build
