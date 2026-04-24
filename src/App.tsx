@@ -10,7 +10,8 @@ export default function App() {
 
   // ② 保存：todosの中身が変わるたびに実行される
   useEffect(() => {
-    localStorage.setItem("my-todos", JSON.stringify(todos));
+    localStorage.setItem("my-todos", todos);
+    //localStorage.setItem("my-todos", JSON.stringify(todos));
   }, [todos]);
 
   const addTodo = () => {
