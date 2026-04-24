@@ -9,8 +9,7 @@ export default function App() {
       <input
         type="text"
         value={text}
-        onChange={() => {}}
-        //onChange={(e) => setText(e.target.value)}
+        onChange={(e) => setText(e.target.value)}
         className="border p-2 mr-2"
       />
       <p className="mt-4">入力中の文字: {text}</p>
