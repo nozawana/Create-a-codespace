@@ -22,6 +22,10 @@ export default function App() {
 
   // ④ 削除機能（今回追加！）
   const deleteTodo = (index: number) => {
+    // ブラウザ標準の確認画面を出す
+    if (!window.confirm("このTODOを削除してもよろしいですか？")) {
+    return; // キャンセルが押されたら、ここで処理を終了する（＝削除しない）
+    }
     // filterメソッド：条件に合うもの（クリックしたindex以外のもの）だけを残す
     const newTodos = todos.filter((_, i) => i !== index);
     setTodos(newTodos);
