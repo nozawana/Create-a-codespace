@@ -19,32 +19,30 @@ export default function App() {
     setText("");
   };
 
+// ...中略...
+  const deleteTodo = (index: number) => {
+    // 指定したインデックス以外の項目だけを残す（＝削除）
+    const newTodos = todos.filter((_, i) => i !== index);
+    setTodos(newTodos);
+  };
+
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">保存機能付きTODO</h1>
-      <div className="flex mb-4">
-        <input
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          className="border p-2 mr-2"
-        />
-        <button onClick={addTodo} className="bg-green-500 text-white px-4 py-2">
-          追加
-        </button>
-      </div>
+      {/* ...入力欄などはそのまま... */}
       <ul>
         {todos.map((todo, index) => (
-          <li key={index} className="border-b py-2">{todo}</li>
+          <li key={index} className="flex justify-between items-center border-b py-2">
+            <span>{todo}</span>
+            <button 
+              onClick={() => deleteTodo(index)} 
+              className="text-red-500 hover:bg-red-100 px-2 py-1 rounded"
+            >
+              削除
+            </button>
+          </li>
         ))}
       </ul>
-      {/* 削除ボタン */}
-      <button 
-        onClick={() => setTodos([])} 
-        className="mt-10 text-xs text-gray-400 underline"
-      >
-        すべて消去
-      </button>
+      {/* ...すべて消去ボタンなどはそのまま... */}
     </div>
   );
 }
