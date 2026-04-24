@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 export default function App() {
-  const [text, setText] = useState<string>("Hello");
+  const [text, setText] = useState<string>("");
 
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-4">TODOアプリを作ろう</h1>
       <input
-        type="text"
+        type="range"
         value={text}
         onChange={(e) => setText(e.target.value)}
         className="border p-2 mr-2"
