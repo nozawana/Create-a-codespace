@@ -23,7 +23,7 @@ export default function App() {
   // ④ 削除機能（今回追加！）
   const deleteTodo = (index: number) => {
     // filterメソッド：条件に合うもの（クリックしたindex以外のもの）だけを残す
-    const newTodos = todos.filter((_, i) => i !== 0);
+    const newTodos = todos.filter((_, i) => i !== index);
     setTodos(newTodos);
   };
 
@@ -50,7 +50,7 @@ export default function App() {
             <span>{todo}</span>
             <button 
               onClick={() => deleteTodo(index)} 
-              className="text-red-500 hover:bg-red-50 px-2 py-1 rounded text-sm transition-colors"
+              className="text-red-500 hover:bg-red-50 px-2 py-1 rounded text-sm transition-colors active:scale-90 transition-transform"
             >
               削除
             </button>
