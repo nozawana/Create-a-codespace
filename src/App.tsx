@@ -6,7 +6,8 @@ export default function App() {
 
   const addTodo = () => {
     if (text === "") return;
-    setTodos([...todos, text]); // 今の配列に新しいテキストを追加
+    //setTodos([...todos, text]); // 今の配列に新しいテキストを追加
+    setTodos([text, ...todos]);
     setText(""); // 入力欄を空にする
   };
 
