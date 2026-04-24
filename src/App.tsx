@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 export default function App() {
   // ① 初期値：保存されているデータがあればそれを使い、なければ空配列 []
   const [todos, setTodos] = useState<string[]>(() => {
-    const saved = localStorage.getItem("my-todos");
+    const saved = localStorage.getItem("wrong-key");
+    //const saved = localStorage.getItem("my-todos");
     return saved ? JSON.parse(saved) : [];
   });
   const [text, setText] = useState<string>("");
@@ -11,8 +12,7 @@ export default function App() {
   // ② 保存：todosの中身が変わるたびに実行される
   useEffect(() => {
     localStorage.setItem("my-todos", JSON.stringify(todos));
-  //}, [todos]);
-  }, []);
+  }, [todos]);
 
   const addTodo = () => {
     if (text === "") return;
