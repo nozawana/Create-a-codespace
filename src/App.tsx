@@ -23,7 +23,7 @@ export default function App() {
   // ④ 削除機能（今回追加！）
   const deleteTodo = (index: number) => {
     // filterメソッド：条件に合うもの（クリックしたindex以外のもの）だけを残す
-    const newTodos = todos.filter((_, i) => i !== index);
+    const newTodos = todos.filter((_, i) => i === index);
     setTodos(newTodos);
   };
 
