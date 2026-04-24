@@ -5,7 +5,7 @@ export default function App() {
   const [todos, setTodos] = useState<string[]>([]); // TODOを格納する配列
 
   const addTodo = () => {
-    //if (text === "") return;
+    if (text === "") return;
     setTodos([...todos, text]); // 今の配列に新しいテキストを追加
     setText(""); // 入力欄を空にする
   };
@@ -27,7 +27,8 @@ export default function App() {
       
       <ul>
         {todos.map((todo, index) => (
-          <li key={index} className="border-b py-2">{todo}</li>
+          //<li key={index} className="border-b py-2">{todo}</li>
+          <li key={index} className="border-b py-2 text-red-500 font-bold">{todo}</li>
         ))}
       </ul>
     </div>
