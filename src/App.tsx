@@ -28,7 +28,7 @@ export default function App() {
       <ul>
         {todos.map((todo, index) => (
           //<li key={index} className="border-b py-2">{todo}</li>
-          <li key={index} className="border-b py-2 text-red-500 font-bold">{todo}</li>
+          <li key={index} className="border-b py-2 text-red-500 font-bold">{todo}(削除)</li>
         ))}
       </ul>
     </div>
