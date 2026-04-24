@@ -11,7 +11,8 @@ export default function App() {
   // ② 保存：todosの中身が変わるたびに実行される
   useEffect(() => {
     localStorage.setItem("my-todos", JSON.stringify(todos));
-  }, [todos]);
+  //}, [todos]);
+  }, []);
 
   const addTodo = () => {
     if (text === "") return;
